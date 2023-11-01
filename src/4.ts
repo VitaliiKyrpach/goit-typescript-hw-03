@@ -1,22 +1,21 @@
 class Key {
 	private signature = Math.random();
-	getSignature() {
+	getSignature(): number {
 		return this.signature;
 	}
 }
 
 class Person {
 	constructor(private key: Key) {}
-	getKey() {
+	getKey(): Key {
 		return this.key;
 	}
 }
 
 abstract class House {
 	protected door: boolean = false;
-	protected key: Key;
 	protected tenants: Person[] = [];
-	constructor(key: Key) {}
+	constructor(protected key: Key) {}
 
 	abstract openDoor(key: Key): void;
 
